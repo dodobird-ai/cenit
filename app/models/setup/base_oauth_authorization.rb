@@ -9,6 +9,7 @@ module Setup
     build_in_data_type.referenced_by(:namespace, :name)
 
     field :access_token, type: String
+    field :id_token, type: String
     field :token_span, type: BigDecimal
 
     def expires_at

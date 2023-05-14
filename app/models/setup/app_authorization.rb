@@ -40,6 +40,7 @@ module Setup
           authorized_at: Time.at(access[:created_at].to_i),
           token_type: access[:token_type],
           access_token: access[:access_token],
+          id_token: access[:id_token],
           token_span: access[:expires_in]
         )
       end

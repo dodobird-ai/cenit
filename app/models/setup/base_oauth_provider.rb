@@ -122,7 +122,8 @@ module Setup
             authorized_at: Time.now,
             token_type: body['token_type'],
             access_token: body['access_token'],
-            token_span: body['expires_in']
+            token_span: body['expires_in'],
+            id_token: body['id_token']
           }
           if (refresh_token = body['refresh_token'])
             update_data[:refresh_token] = refresh_token

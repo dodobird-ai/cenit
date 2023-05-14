@@ -10,7 +10,7 @@ module Setup
     field :refresh_token, type: String
     field :id_token, type: String
 
-    auth_template_parameters access_token: ->(oauth2_auth) { oauth2_auth.fresh_access_token }
+    auth_template_parameters access_token: ->(oauth2_auth) { oauth2_auth.fresh_access_token }, id_token: :id_token
 
     def check
       if super
@@ -77,7 +77,7 @@ module Setup
       self.access_token = token.token
       self.token_span = token.expires_in || token.params['token_span']
       self.refresh_token = token.refresh_token if token.refresh_token
-      self.id_token = token.params['id_token']
+      self.id_token = token.id_token
     end
 
     def accept_callback?(params)
